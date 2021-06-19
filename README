@@ -1,0 +1,8 @@
+- Simple Java spring Web application with JPA-Hibernate example
+
+- Git Push Commands
+    $ git init
+    $ git remote add origin https://github.com/preetampatil3d/spring-hibernate-jpa.git
+    $ git add .
+    $ git commit -m "First Commit"
+    $ git push -u origin --all
