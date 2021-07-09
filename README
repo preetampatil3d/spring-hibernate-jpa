@@ -1,10 +1,28 @@
 - Simple Java spring Web application with JPA-Hibernate example
 
+# ******************* GIT **************************
 - Git Push Commands > Go To Project Directory 
-    $ git init
-    $ git remote add origin https://github.com/preetampatil3d/spring-hibernate-jpa.git
-    $ git add .
-    $ git commit -m "First Commit"
-    $ git push -u origin --all
+  $git init
+  $git remote add origin https://github.com/preetampatil3d/spring-hibernate-jpa.git
+  $git add .
+  $git commit -m "First Commit"
+  $git push -u origin --all
     
-    $ git pull
+  $git pull
+
+# ****************** Docker ************************
+
+- Bild jar 
+$ mvn clean install -DskipTests
+
+- Create network : 
+$ docker network create springdb-network
+
+- Create Mysql container : 
+$ docker run --name mysqldb --network springdb-network -e MYSQL_ROOT_PASSWORD=root@123 -e MYSQL_DATABASE=db_example -d mysql:8
+
+- build SpringBoot application container:
+$ docker build -f Dockerfile . -t springjpa:1.0.0
+
+- run container:
+$ docker run --network springdb-network --name springjpa-container -p 8080:8080 -d springjpa:1.0.0 
